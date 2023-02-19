@@ -36,7 +36,9 @@ body {
   text-rendering: optimizeSpeed;
   font-family: Arial, Helvetica, sans-serif;
   line-height: 1.5;
-  background-color: #10100e;
+  background: url('../static/bg.jpg') no-repeat center center;
+  background-size: cover;
+  background-attachment: fixed;
 }
 
 /* Удаляем стандартную стилизацию для всех ul и il, у которых есть атрибут class*/

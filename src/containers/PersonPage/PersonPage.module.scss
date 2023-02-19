@@ -1,0 +1,30 @@
+.title {
+    display: inline-block;
+    padding: .5rem 1rem;
+    border-radius: .25rem;
+    margin-bottom: 1.5rem;
+    color: #fff;
+    position: relative;
+    height: 100%;
+    background-color: #9201c3;
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: .5rem;
+        border-radius: .25rem 0 .25rem .25rem;
+        height: 600px;
+        background-color: #9201c3;
+        z-index: 2;
+    }
+}
+
+.person__wrapper {
+    display: flex;
+    align-items: flex-start;
+    height: 500px;
+    gap: 0 2rem;
+    padding: 0 0 0 1.5rem;
+}

@@ -1,0 +1,27 @@
+.button {
+  background-color: #ffffff50;
+  color: #fff;
+  padding: 0.25rem 1rem;
+  border: 2px solid #fff;
+  cursor: pointer;
+
+  border-radius: .25rem;
+
+  transition: 0.1s ease-in-out;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+  }
+
+  &:first-child {
+    margin-right: 2rem;
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+}

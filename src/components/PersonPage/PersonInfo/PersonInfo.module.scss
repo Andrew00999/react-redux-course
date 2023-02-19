@@ -1,0 +1,16 @@
+.item {
+    color: #fff;
+    list-style-type: none;
+
+    p {
+        font-size: 1.4rem;
+    }
+}
+.characteristics {
+    margin: 0;
+    width: 30%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .7);
+    border-radius: .25rem;
+    padding: 1rem !important;
+}

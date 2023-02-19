@@ -1,13 +1,28 @@
 import React from 'react'
-import sl from './App.module.scss'
+import { Route, Routes } from 'react-router-dom'
+import routesConfig from '@routes/routesConfig'
 
-import PeoplePage from '@containers/PeoplePage';
+import Header from '@components/Header'
+
+import sl from './App.module.scss'
 
 const App = () => {
 	return (
-		<div className={sl.app}>
-			<PeoplePage />
-		</div>
+		<>
+			<Header />
+			<div className={sl.app_container}>
+				<Routes>
+					{routesConfig.map((route, index) => (
+						<Route
+							key={index}
+							path={route.path}
+							exact={route.exact}
+							element={route.element}
+						/>
+					))}
+				</Routes>
+			</div>
+		</>
 	)
 }
 

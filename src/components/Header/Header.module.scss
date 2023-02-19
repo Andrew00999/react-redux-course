@@ -1,0 +1,33 @@
+.container {
+    width: 80%;
+    height: auto;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+.header_list {
+    display: flex;
+    align-items: center;
+    gap: 0 1rem;
+    
+    li {
+        list-style-type: none;
+
+        a {
+            color: #b5b5b5;
+            text-decoration: none;
+            font-weight: 600;
+            transition: .3s ease-in-out;
+            padding: .5rem 1rem;
+            border: 2px solid transparent;
+
+            &:hover {
+                color: #fff;
+            }
+
+            &:global(.active) {
+                border: 2px solid rgb(0, 203, 0);
+                color: #fff;
+            }
+        }
+    }
+}
