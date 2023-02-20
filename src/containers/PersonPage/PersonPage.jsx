@@ -2,6 +2,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState, lazy, Suspense } from 'react'
 import { useParams } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 import GoBack from '@components/PersonPage/GoBack'
 import PersonInfo from '@components/PersonPage/PersonInfo'
@@ -21,16 +22,25 @@ import sl from './PersonPage.module.scss';
 const PersonFilms = lazy(() => import('@components/PersonPage/PersonFilms'))
 
 const PersonPage = ({ setErrorApi }) => {
+    const [personId, setPesonId] = useState(null)
     const [personInfo, setPesonInfo] = useState(null)
     const [personName, setPesonName] = useState(null)
     const [personImage, setPersonImage] = useState(null)
     const [personFilms, setPersonFilms] = useState(null)
+    const [personFavorite, setPersonFavorite] = useState(false)
 
-    const id = useParams().id
+    const params = useParams()
+
+    const storeData = useSelector(state => state.favoriteReducer)
 
     useEffect(() => {
         (async () => {
+            const id = params.id
+            setPesonId(id)
             const res = await getApiResourse(`${API_PERSON}/${id}/`)
+
+            storeData[id] ? setPersonFavorite(true) : setPersonFavorite(false)
+
             setErrorApi(!res)
 
             setPesonInfo([
@@ -56,8 +66,11 @@ const PersonPage = ({ setErrorApi }) => {
             <h2 className={sl.title}>{personName}</h2>
             <div className={sl.person__wrapper}>
                 <PersonImage
+                    personId={personId}
                     personImage={personImage}
                     personName={personName}
+                    personFavorite={personFavorite}
+                    setPersonFavorite={setPersonFavorite}
                 />
                 {personInfo && (
                     <PersonInfo

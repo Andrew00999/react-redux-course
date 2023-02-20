@@ -4,8 +4,8 @@
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
-    justify-content: space-between;
-    row-gap: 2rem;
+    justify-content: center;
+    gap: 2rem;
 
     &_item {
         width: 18%;
